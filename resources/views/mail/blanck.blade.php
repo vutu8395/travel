@@ -1,0 +1,1 @@
+gia dien mail : {{$name}}, {{$phone}}, {{$email}}, {{$address}} va {{ $receive }}
