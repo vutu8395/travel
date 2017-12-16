@@ -1,4 +1,4 @@
-@extends('admin.master')
+@extends('backend.master')
 
 @section('content-header')
 	<section class="content-header">
@@ -35,27 +35,41 @@
 		</div>
 		<div class="panel-body">
 			<form class="form-horizontal" method="post" >
-
 				{{ csrf_field() }}
 				<div class="form-group {{ !empty($errors->first('name')) ? 'has-error' : ''}}">
 					<label class="control-label col-md-2" for="name">Tên đăng nhập:<small></small></label>
 					<div class="col-md-4">
-						<input type="text" class="form-control" name="name" id="name" value="{{{ $user->name }}}" placeholder="Nhập tên người dùng" disabled>
+						<input type="text" class="form-control" name="name" id="name"  placeholder="Nhập tên người dùng">
 						<span class="error">{{ $errors->first('name') }}</span>
 					</div>
 				</div>
 				<div class="form-group {{ !empty($errors->first('fullname')) ? 'has-error' : ''}}">
 					<label class="control-label col-md-2" for="fullname">Tên người dùng:<small></small></label>
 					<div class="col-md-4">
-						<input type="text" class="form-control" name="fullname" value="{{{ $user->fullname }}}" id="fullname" placeholder="Nhập tên người dùng">
+						<input type="text" class="form-control" name="fullname" id="fullname" placeholder="Nhập tên người dùng">
 						<span class="error">{{ $errors->first('fullname') }}</span>
 					</div>
 				</div>
 				<div class="form-group {{ !empty($errors->first('email')) ? 'has-error' : ''}}">
 					<label class="control-label col-md-2" for="email">Email:</label>
 					<div class="col-md-4">
-						<input type="email" class="form-control" name="email" value="{{{ $user->email }}}" id="email" placeholder="Nhập Email">
+						<input type="email" class="form-control" name="email" id="email" placeholder="Nhập Email">
 						<span class="error">{{ $errors->first('email') }}</span>
+					</div>
+				</div>
+				<hr>
+				<div class="form-group {{ !empty($errors->first('password')) ? 'has-error' : ''}}">
+					<label class="control-label col-md-2" for="password">Mật khẩu:</label>
+					<div class="col-md-4"> 
+						<input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu">
+						<span class="error">{{ $errors->first('password') }}</span>
+					</div>
+				</div>
+				<div class="form-group {{ !empty($errors->first('password_confirmation')) ? 'has-error' : ''}}">
+					<label class="control-label col-md-2" for="password_confirmation">Nhập lại mật khẩu:</label>
+					<div class="col-md-4">
+						<input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu">
+						<span class="error">{{ $errors->first('password_confirmation') }}</span>
 					</div>
 				</div>
 				<hr>
@@ -63,7 +77,7 @@
 					
 					<label class="control-label col-md-2" for="birthday">Ngày sinh:</label>
 					<div class="col-md-4"> 
-						<input type="date" class="form-control" id="birthday" value="{{ !empty($errors->first('birthday')) ? date('m-d-Y',strtotime($errors->first('birthday'))) : '' }}" name="birthday">
+						<input type="date" class="form-control" id="birthday" name="birthday"  value="">
 						<span class="error">{{ $errors->first('birthday') }}</span>
 					</div>
 					
@@ -71,20 +85,20 @@
 				<div class="form-group {{ !empty($errors->first('phone')) ? 'has-error' : ''}}">
 					<label class="control-label col-md-2" for="phone">Số điện thoại:</label>
 					<div class="col-md-4"> 
-						<input type="text" class="form-control" id="phone" value="{{ $user->phone }}" placeholder="Số điện thoại" name="phone">
+						<input type="text" class="form-control" id="phone" placeholder="Số điện thoại" name="phone" value="">
 						<span class="error">{{ $errors->first('phone') }}</span>
 					</div>
 				</div>
 				<div class="form-group {{ !empty($errors->first('address')) ? 'has-error' : ''}}">
 					<label class="control-label col-md-2" for="address">Địa chỉ:</label>
 					<div class="col-md-4"> 
-						<textarea rows="4" class="form-control" id="address"  name="address">{{{ $user->address }}}</textarea>
+						<textarea rows="4" class="form-control" id="address" name="address" value=""></textarea>
 						<span class="error">{{ $errors->first('address') }}</span>
 					</div>
 				</div>
 				<div class="form-group"> 	
 					<div class="col-md-offset-2 col-md-4">
-						<input type="submit" name="dangki" class="btn btn-warning btn-sm" value="Thay đổi">
+						<input type="submit" name="dangki" class="btn btn-primary btn-sm" value="Đăng kí">
 						<input type="reset" name="reset" value="Nhập lại" class="btn btn-default btn-sm">
 					</div>
 				</div>
