@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'frontend\LocationController@index');
 
 
 //Route::get('auth/getLogin', ['as'=>'getLogin', 'uses'=>'AuthController@getLogin']);
